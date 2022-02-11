@@ -1,8 +1,25 @@
+<h1>Users#show</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+
 <h2>User info</h2>
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <h3><%= @user.name %></h3>
-  <h3><%= @user.introduction %></h3>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+      </tr>
+    </tbody>  
+   </table>
+   <%= link_to "edit",root_path, class: 'btn btn-outline-secondary btn-block fa-solid fa-user-gear' %>
+   
 </div>
 
 
@@ -13,12 +30,21 @@
    <%= f.text_field :title %>
  </div>
  <div class="field">
-   <%= f.label :body %>
+   <%= f.label :opinion %>
    <%= f.text_area :body %>
  </div>
  <div class="field">
-   <%= f.submit 'Create Book' %>
+   <%= f.submit 'Create Book', class: "btn btn-success" %>
  </div>
 <% end %>
-
+    </div>
+    
+    <div class="col-lg-8">
 <h2>Users</h2>
+<!--ユーザー一覧を作成しないといけない-->
+
+
+
+   </div>
+  </div>
+ </div>
