@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :authenticate_user!, only:[:edit, :destroy]
+  # 上記の記述は「ログイン済みのユーザのみアクセスできる」という意味
   
    def after_sign_in_path_for(resource)
-     books_path
+     user_path(current_user.id)
    end
    
    def after_sign_out_path_for(resource)
