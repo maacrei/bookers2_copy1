@@ -5,10 +5,8 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book.id), notice: "You have created book successfully."
     else
-      redirect_to books_path
-      # @books = Book.all
-      # render :index
-    # redirect_toだとエラーメッセージが表示できない？
+      @books = Book.all
+      render :index
     end
   end
 

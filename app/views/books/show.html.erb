@@ -1,20 +1,20 @@
 <p class="notice text-success"><%= flash[:notice] %></p>
 
-<div class="container">
+<div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-md-3">
      <!--↓部分テンプレート-->
      <%= render 'list', books: @books %>
      
      <h2>New book</h2>
      <%= form_with model: @new_book, local: true do |f| %>
       <div class="field">
-       <%= f.label :title %>
+       <%= f.label :title %><br>
        <%= f.text_field :title %>
       </div>
       
       <div class="field">
-       <%= f.label :opinion %>
+       <%= f.label :opinion %><br>
        <%= f.text_area :body %>
       </div>
       
@@ -24,7 +24,7 @@
      <% end %>
     </div>
     
-    <div class="col-lg-8 offset-md-1">
+    <div class="col-md-8 offset-md-1">
      <h2>Book detail</h2>
      <table class="table">
       <tbody>
