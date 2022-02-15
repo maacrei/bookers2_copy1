@@ -3,6 +3,17 @@
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     
    <h1>User info</h1>
+   <div id="error_explanation">
+ 　  <% if @user.errors.any? %>
+     <%= @user.errors.count %> error prohibited this obj from being saved:
+     <ul>
+      <% @user.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %>
+     </ul>
+    <% end %>
+   </div>
+      
    <%= form_with model: @user do |f| %>
      <div class="form-group">
        <label for="inputTitle">Name</label>
