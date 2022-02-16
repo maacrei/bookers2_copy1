@@ -3,10 +3,10 @@ class BooksController < ApplicationController
   # before_action :authenticate_user!, only:[:edit, :destroy]
   
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    if @book.save
-      redirect_to book_path(@book.id), notice: "You have created book successfully."
+    @new_book = Book.new(book_params)
+    @new_book.user_id = current_user.id
+    if @new_book.save
+      redirect_to book_path(@new_book.id), notice: "You have created book successfully."
     else
       @books = Book.all
       render :index
@@ -14,7 +14,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @book = Book.new
+    @new_book = Book.new
     @books = Book.all
     @current_user = current_user
   end
@@ -23,7 +23,9 @@ class BooksController < ApplicationController
     @new_book = Book.new
     @book = Book.find(params[:id])
     @books = Book.all
-    @current_user = @book.user
+    @user = @book.user
+    # @current_user = @book.userから上記に変更した
+    # application.html.erbのHomeリンクの記述部分にあるuser_path(current_user.id)のcurrent_userと同じと認識されてしまっていた
   end
 
   def edit
